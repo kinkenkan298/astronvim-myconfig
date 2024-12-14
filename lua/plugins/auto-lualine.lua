@@ -4,7 +4,7 @@ return {
     event = { "InsertEnter", "BufRead", "BufNewFile" },
     dependencies = { "nvim-lualine/lualine.nvim" },
     config = function()
-      local lualine = require("auto-lualine")
+      local lualine = require "auto-lualine"
       -- tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
       -- gruvbox-baby (default)
       -- sonokai, sonokai_atlantis,
@@ -28,19 +28,19 @@ return {
       -- parallelogram
       -- transparent
       -- default
-      local options = "roundedall"
+      local options = "parallelogram"
       -- 0 = on full text mode info,
       -- 1 = on initial mode + logo
       -- 2 = logo only
       -- 3 = initial only
       -- 4 = off
       -- 5 = icon
-      local show_mode = 0
-      lualine.setup({
+      local show_mode = 5
+      lualine.setup {
         setColor = color,
         setOption = options,
         setMode = show_mode,
-      })
+      }
     end,
   },
 }
