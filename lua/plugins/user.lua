@@ -22,7 +22,7 @@ return {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
-      opts.section.header.val = {       
+      opts.section.header.val = {
         "██╗  ██╗██╗███╗   ██╗██╗  ██╗███████╗███╗   ██╗",
         "██║ ██╔╝██║████╗  ██║██║ ██╔╝██╔════╝████╗  ██║",
         "█████╔╝ ██║██╔██╗ ██║█████╔╝ █████╗  ██╔██╗ ██║",
@@ -31,19 +31,15 @@ return {
         "╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝",
       }
       opts.section.buttons.val = {
-			  opts.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-			  opts.button("b", "  > Browse files", ":Oil --float<CR>"),
-			  opts.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
-			  opts.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-		  }
+        opts.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
+        opts.button("b", "  > Browse files", ":Oil --float<CR>"),
+        opts.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
+        opts.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+      }
       return opts
     end,
   },
 
-  -- You can disable default plugins as follows:
-  --  { "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -56,31 +52,42 @@ return {
 
   {
     "windwp/nvim-autopairs",
+    lazy = true,
+    dependencies = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    opts = {
+      check_ts = true,
+      ts_config = {
+        lua = { "string", "source" },
+        javascript = { "string", "template_string" },
+        java = false,
+      },
+      disable_filetype = { "TelescopePrompt", "spectre_panel" },
+      fast_wrap = {
+        map = "<M-e>",
+        chars = { "{", "[", "(", '"', "'", "`" },
+        pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+        offset = 0, -- Offset from pattern match
+        end_key = "$",
+        keys = "qwertyuiopzxcvbnmasdfghjkl",
+        check_comma = true,
+        highlight = "PmenuSel",
+        highlight_grey = "LineNr",
+      },
+    },
     config = function(plugin, opts)
       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom autopairs configuration such as custom rules
       local npairs = require "nvim-autopairs"
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            -- don't add a pair if the next character is %
-            :with_pair(cond.not_after_regex "%%")
-            -- don't add a pair if  the previous character is xxx
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            -- don't move right when repeat character
-            :with_move(cond.none())
-            -- don't delete if the next character is xx
-            :with_del(cond.not_after_regex "xx")
-            -- disable adding a newline when you press <cr>
-            :with_cr(cond.none()),
-        },
-        -- disable for .vim files, but it work for another filetypes
-        Rule("a", "a", "-vim")
-      )
+      npairs.add_rules({
+        Rule("$", "$", { "tex", "latex" })
+          :with_pair(cond.not_after_regex "%%")
+          :with_pair(cond.not_before_regex("xxx", 3))
+          :with_move(cond.none())
+          :with_del(cond.not_after_regex "xx")
+          :with_cr(cond.none()),
+      }, Rule("a", "a", "-vim"))
     end,
   },
   { "nyoom-engineering/oxocarbon.nvim", lazy = true },
@@ -89,5 +96,5 @@ return {
     dependencies = {
       "rktjmp/lush.nvim",
     },
-  }
+  },
 }
