@@ -32,6 +32,11 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        conceallevel = 0, -- disable conceal
+        linebreak = true, -- linebreak soft wrap at words
+        list = true, -- show whitespace characters
+        showbreak = "﬌ ",
+        listchars = { tab = " ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
