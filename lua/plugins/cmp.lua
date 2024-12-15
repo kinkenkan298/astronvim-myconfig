@@ -1,6 +1,14 @@
---- @type LazySpec
+local all_trim = function(s) return s:match "^%s*(.-)%s*$" end
 return {
   "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lua",
+  },
   opts = function(_, opts)
     local cmp = require "cmp"
     local luasnip = require "luasnip"
@@ -10,12 +18,37 @@ return {
     }
 
     return require("astrocore").extend_tbl(opts, {
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "nvim_lua" },
+      },
+      snippet = {
+        expand = function(args) require("luasnip").lsp_expand(args.body) end,
+      },
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
       window = {
         completion = cmp.config.window.bordered(border_opts),
         documentation = cmp.config.window.bordered(border_opts),
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          vim_item.menu = vim.api.nvim_get_mode().mode == "c" and "" or all_trim(vim_item.kind)
+          vim_item.kind = string.format("%s", all_trim(require(".icons")["kind"][vim_item.kind]))
+          vim_item.menu = ({
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+            codeium = "[Codeium]",
+          })[entry.source.name]
+          return vim_item
+        end,
       },
       mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
@@ -36,6 +69,10 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+      },
+      experimental = {
+        ghost_text = false,
+        native_menu = false,
       },
     })
   end,

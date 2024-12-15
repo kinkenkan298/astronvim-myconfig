@@ -11,10 +11,10 @@ return {
     opts.sync_root_with_cwd = true
     opts.update_focused_file = {
       enable = true,
-      update_root = false,
+      update_root = true,
     }
     opts.view = {
-      adaptive_size = false,
+      adaptive_size = true,
       centralize_selection = true,
       width = 30,
       side = "left",
@@ -36,7 +36,7 @@ return {
       },
     }
     opts.renderer = {
-      root_folder_label = false,
+      root_folder_label = true,
       highlight_git = true,
       indent_markers = { enable = true },
       indent_markers = {
@@ -116,4 +116,5 @@ return {
     local api = require "nvim-tree.api"
     api.events.subscribe(api.events.Event.FileCreated, function(file) vim.cmd("edit " .. file.fname) end)
   end,
+  enabled = false,
 }

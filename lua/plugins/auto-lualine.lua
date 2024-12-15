@@ -28,7 +28,7 @@ return {
       -- parallelogram
       -- transparent
       -- default
-      local options = "parallelogram"
+      local options = "rounded"
       -- 0 = on full text mode info,
       -- 1 = on initial mode + logo
       -- 2 = logo only
