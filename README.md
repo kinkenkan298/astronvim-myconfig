@@ -18,11 +18,11 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 #### kloning repo nya coy biar berkah
 
 ```shell
-git clone https://github.com/kinkenkan298/config-nvim ~/.config/nvim
+git clone https://github.com/kinkenkan298/astronvim-myconfig ~/.config/nvim
 ```
 
 #### Langsung gas aja ngoding
 
 ```shell
-nvim
+nvim --headlesss +q
 ```
