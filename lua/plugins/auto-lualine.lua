@@ -10,7 +10,7 @@ return {
           optional = true,
           opts = function(_, opts) opts.statusline = nil end,
         },
-      ⁷,
+      },
     },
     config = function()
       local lualine = require "auto-lualine"
