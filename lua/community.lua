@@ -1,6 +1,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.lsp.inc-rename-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.colorscheme.catppuccin" },
@@ -8,5 +9,6 @@ return {
   { import = "astrocommunity.colorscheme.night-owl-nvim" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
+  { import = "astrocommunity.recipes.disable-tabline" },
   -- { import = "astrocommunity.completion.blink-cmp" },
 }

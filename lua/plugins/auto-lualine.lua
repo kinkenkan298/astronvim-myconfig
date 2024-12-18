@@ -2,7 +2,16 @@ return {
   {
     "pojokcodeid/auto-lualine.nvim",
     event = { "InsertEnter", "BufRead", "BufNewFile" },
-    dependencies = { "nvim-lualine/lualine.nvim" },
+    dependencies = {
+      "nvim-lualine/lualine.nvim",
+      specs = {
+        {
+          "rebelot/heirline.nvim",
+          optional = true,
+          opts = function(_, opts) opts.statusline = nil end,
+        },
+      ⁷,
+    },
     config = function()
       local lualine = require "auto-lualine"
       -- tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
