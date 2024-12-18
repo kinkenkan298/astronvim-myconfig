@@ -10,8 +10,8 @@ return {
         options = { opt = { showtabline = 2 } },
         mappings = {
           n = {
-            H = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" },
-            L = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" },
+            L = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" },
+            H = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" },
             ["<Leader>bb"] = {
               function() require("bufferline.commands").pick() end,
               desc = "Navigate to buffer tab with interactive picker",

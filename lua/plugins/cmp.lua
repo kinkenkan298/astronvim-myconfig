@@ -16,14 +16,14 @@ return {
       border = "single",
       winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
     }
-
+ w
     return require("astrocore").extend_tbl(opts, {
       sources = cmp.config.sources {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "nvim_lua" },
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
+        { name = "nvim_lua", priority = 750 },
       },
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,
