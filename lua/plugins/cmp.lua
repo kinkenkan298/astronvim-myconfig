@@ -8,6 +8,7 @@ return {
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lua",
+    "zbirenbaum/copilot-cmp",
   },
   opts = function(_, opts)
     local cmp = require "cmp"
@@ -16,7 +17,6 @@ return {
       border = "single",
       winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
     }
- w
     return require("astrocore").extend_tbl(opts, {
       sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
@@ -24,6 +24,7 @@ return {
         { name = "buffer", priority = 500 },
         { name = "path", priority = 250 },
         { name = "nvim_lua", priority = 750 },
+        { name = "copilot", priority = 1500 },
       },
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,

@@ -10,5 +10,6 @@ return {
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.recipes.disable-tabline" },
+  { import = "astrocommunity.completion.copilot-cmp" },
   -- { import = "astrocommunity.completion.blink-cmp" },
 }

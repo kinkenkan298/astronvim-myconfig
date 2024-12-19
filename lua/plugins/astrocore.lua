@@ -1,11 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
----@type LazySpec
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
@@ -35,8 +27,8 @@ return {
         conceallevel = 0, -- disable conceal
         linebreak = true, -- linebreak soft wrap at words
         list = true, -- show whitespace characters
-        showbreak = "﬌ ",
-        listchars = { tab = " ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+        -- showbreak = "﬌ ",
+        -- listchars = { tab = " ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -51,6 +43,13 @@ return {
           desc = "Enable spell for text like documents",
           pattern = { "gitcommit", "markdown", "text", "plaintex" },
           callback = function() vim.opt_local.spell = true end,
+        },
+      },
+      highlighturl = {
+        {
+          event = { "VimEnter", "FileType", "BufEnter", "WinEnter" },
+          desc = "URL Highlighting",
+          callback = function() require("astrocore").set_url_match() end,
         },
       },
     },
