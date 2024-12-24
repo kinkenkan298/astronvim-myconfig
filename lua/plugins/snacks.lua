@@ -144,4 +144,10 @@ return {
       end,
     },
   },
+  specs = {
+    {
+      "goolord/alpha-nvim",
+      enabled = false,
+    },
+  },
 }
