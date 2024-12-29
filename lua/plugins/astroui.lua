@@ -1,7 +1,7 @@
 return {
   "AstroNvim/astroui",
   opts = {
-    colorscheme = "eldritch",
+    colorscheme = "tokyodark",
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = { bg = "#000000" },

@@ -11,4 +11,6 @@ return {
   { import = "astrocommunity.completion.blink-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.fuzzy-finder.fzf-lua" },
+  { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.utility.hover-nvim" },
 }

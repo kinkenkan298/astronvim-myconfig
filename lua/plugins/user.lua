@@ -59,4 +59,20 @@ return {
     priority = 1000,
     opts = {},
   },
+  {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+      transparent_background = false, -- set background to transparent
+      gamma = 1.00, -- adjust the brightness of the theme
+      styles = {
+        comments = { italic = false }, -- style for comments
+        keywords = { italic = true }, -- style for keywords
+        identifiers = { italic = false }, -- style for identifiers
+        functions = { bold = true }, -- style for functions
+        variables = { italic = true }, -- style for variables
+      },
+      terminal_colors = true, -- enable terminal colors
+    },
+    config = function(_, opts) require("tokyodark").setup(opts) end,
+  },
 }
