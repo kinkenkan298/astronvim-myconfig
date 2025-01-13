@@ -22,7 +22,7 @@ return {
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        signcolumn = "no", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
         conceallevel = 0, -- disable conceal
         linebreak = true, -- linebreak soft wrap at words

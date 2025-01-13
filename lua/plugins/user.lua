@@ -66,10 +66,10 @@ return {
       gamma = 1.00, -- adjust the brightness of the theme
       styles = {
         comments = { italic = false }, -- style for comments
-        keywords = { italic = true }, -- style for keywords
+        keywords = { italic = false }, -- style for keywords
         identifiers = { italic = false }, -- style for identifiers
-        functions = { bold = true }, -- style for functions
-        variables = { italic = true }, -- style for variables
+        functions = { bold = false }, -- style for functions
+        variables = { italic = false }, -- style for variables
       },
       terminal_colors = true, -- enable terminal colors
     },

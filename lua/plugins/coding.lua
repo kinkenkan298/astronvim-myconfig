@@ -9,7 +9,7 @@ return {
     event = "CmdlineEnter",
     opts = {
       messages = {
-        enabled = false,
+        enabled = true,
       },
       notify = {
         enabled = false,
@@ -32,19 +32,20 @@ return {
     dependencies = {
       {
         "giuxtaposition/blink-cmp-copilot",
+        enabled = false,
       },
     },
     opts = {
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
+        --   default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        --   providers = {
+        --     copilot = {
+        --       name = "copilot",
+        --       module = "blink-cmp-copilot",
+        --       score_offset = 100,
+        --       async = true,
+        --     },
+        --   },
       },
     },
   },
@@ -54,5 +55,6 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
     },
+    enabled = false,
   },
 }
