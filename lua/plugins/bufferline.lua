@@ -3,6 +3,7 @@ return {
   branch = "main",
   event = "VeryLazy",
   dependencies = {
+    { import = "astrocommunity.recipes.disable-tabline" },
     { "pojokcodeid/auto-bufferline.nvim" },
     {
       "AstroNvim/astrocore",
@@ -10,8 +11,6 @@ return {
         options = { opt = { showtabline = 2 } },
         mappings = {
           n = {
-            L = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" },
-            H = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" },
             ["<Leader>bb"] = {
               function() require("bufferline.commands").pick() end,
               desc = "Navigate to buffer tab with interactive picker",

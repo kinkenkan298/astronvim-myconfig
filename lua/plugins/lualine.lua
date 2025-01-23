@@ -2,6 +2,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = { "InsertEnter", "BufRead", "BufNewFile" },
+    enabled = false,
     dependencies = {
       { "pojokcodeid/auto-lualine.nvim" },
       {

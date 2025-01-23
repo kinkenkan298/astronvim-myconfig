@@ -7,10 +7,9 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.solarized-osaka-nvim" },
   { import = "astrocommunity.colorscheme.eldritch-nvim" },
-  { import = "astrocommunity.recipes.disable-tabline" },
   { import = "astrocommunity.completion.blink-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.fuzzy-finder.fzf-lua" },
   { import = "astrocommunity.scrolling.mini-animate" },
-  { import = "astrocommunity.utility.hover-nvim" },
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
 }

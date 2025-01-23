@@ -28,24 +28,27 @@ return {
     },
   },
   {
-    "blink.cmp",
+    "Saghen/blink.cmp",
     dependencies = {
       {
         "giuxtaposition/blink-cmp-copilot",
-        enabled = false,
+        enabled = true,
       },
     },
     opts = {
+      completion = {
+        list = { selection = { preselect = true, auto_insert = true } },
+      },
       sources = {
-        --   default = { "lsp", "path", "snippets", "buffer", "copilot" },
-        --   providers = {
-        --     copilot = {
-        --       name = "copilot",
-        --       module = "blink-cmp-copilot",
-        --       score_offset = 100,
-        --       async = true,
-        --     },
+        -- default = { "lsp", "path", "snippets", "buffer", "copilot" },
+        -- providers = {
+        --   copilot = {
+        --     name = "copilot",
+        --     module = "blink-cmp-copilot",
+        --     score_offset = 100,
+        --     async = true,
         --   },
+        -- },
       },
     },
   },
